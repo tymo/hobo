@@ -28,7 +28,7 @@ new_form = !new_link && linkable?(model, :create, :method => :post)
       <header param="content-header">
         <h2 param="heading"><%= model_name :title, :plural %></h2>
 
-        <p param="count" if>There <count prefix="are"/></p>
+        <p param="count" if>Existem <count/></p>
       </header>
       
       <section param="content-body">
@@ -54,7 +54,7 @@ new_form = !new_link && linkable?(model, :create, :method => :post)
 
 <% if new_form -%>
         <div param="new-form">
-          <h3 param="new-form-heading">New <%= model_name :title %></h3>
+          <h3 param="new-form-heading">Novo <%= model_name :title %></h3>
           <form with="&new_for_current_user <%= model %>" param/>
         </div>
 
@@ -71,12 +71,12 @@ new_form = !new_link && linkable?(model, :create, :method => :post)
     
     <content: param>
       <section param="content-header">
-        <h2 param="heading">New <%= model_name :title %></h2>
+        <h2 param="heading">Novo <%= model_name :title %></h2>
       </section>
       
       <section param="content-body">
         <form param>
-          <submit: label="Create <%= model_name :title %>"/>
+          <submit: label="Criar <%= model_name :title %>"/>
         </form>
       </section>
     </content:>
@@ -138,7 +138,7 @@ end
 <% end -%>
 <% if edit_link -%>
 
-            <a action="edit" if="&can_edit?" param="edit-link">Edit <%= model_name :title %></a>
+            <a action="edit" if="&can_edit?" param="edit-link">Editar <%= model_name :title %></a>
 <% end -%>
           </header>
     
@@ -164,10 +164,10 @@ end
 <%   elsif add_form -%>
 
               <section param="add-to-collection" if="&can_create?(@<%= model_name.underscore %>.<%= collection %>)">
-                <h3 param="add-form-heading">Add <%= a_or_an collection.to_s.singularize.titleize %></h3>
+                <h3 param="add-form-heading">Adicionar <%= a_or_an collection.to_s.singularize.titleize %></h3>
                 <form with="&@<%= collection_class.name.underscore %> || new_for_current_user(@<%= model_name.underscore %>.<%= collection %>)" owner="<%= owner %>" without-cancel param>
                   <field-list: skip="<%= owner %>"/>
-                  <submit: label="Add"/>
+                  <submit: label="Adicionar"/>
                 </form>
               </section>
 <%   end -%>
@@ -206,14 +206,14 @@ end
 name_attribute = model.name_attribute
 -%>
 <def tag="edit-page" for="<%= model.name %>">
-  <page merge title="Edit <%= model_name :title %>">
+  <page merge title="Editar <%= model_name :title %>">
 
     <body: class="edit-page <%= model_class %>" param/>
 
     <content:>
       <section param="content-header">
-        <h2 param="heading">Edit <type-name/></h2>
-        <delete-button label="Remove This <%= model_name :title %>" param/>
+        <h2 param="heading">Editar <type-name/></h2>
+        <delete-button label="Remover este <%= model_name :title %>" param/>
       </section>
 
       <section param="content-body">
@@ -247,7 +247,7 @@ new_link = :new.in?(actions)
     <content: param>
       <header param="content-header">
 <% if linkable_owner -%>
-        <div param="back-to">Back to <a with="&@<%= owner %>"/></div>
+        <div param="back-to">Voltar para <a with="&@<%= owner %>"/></div>
 <% end -%>
 <% if owner_is_user %>
         <h2 param="heading"><Your with="&current_user"/> <%= model_name :title, :plural %></h2>
@@ -255,7 +255,7 @@ new_link = :new.in?(actions)
         <h2 param="heading"><%= model_name :title, :plural %></h2>
         <h3 param="subheading">For: <<%= owner_tag %> with="&@<%= owner %>"/></h3>
 <% end -%>
-        <p param="count" if>There <count prefix="are"/></p>
+        <p param="count" if>Exitem <count/></p>
       </header>
       
       <section param="content-body">
@@ -279,20 +279,20 @@ new_link = :new.in?(actions)
 <% if :new.in? actions -%>
 <def tag="new-for-<%= owner.dasherize %>-page" polymorphic/>
 <def tag="new-for-<%= owner.dasherize %>-page" for="<%= model.name %>">
-  <page merge title="New <%= model_name :title %> for #{name :with => @<%= owner %>}">
+  <page merge title="Novo <%= model_name :title %> for #{name :with => @<%= owner %>}">
     
     <body: class="new-for-owner-page <% owner.dasherize %> <%= model_class %>" param/>
     
     <content: param>
       <header param="content-header">
-        <h2 param="heading">New <%= collection_name.singularize.titleize %></h2>
-        <h3 param="subheading">For: <<%= owner_tag %> with="&@<%= owner %>"/></h3>
+        <h2 param="heading">Novo <%= collection_name.singularize.titleize %></h2>
+        <h3 param="subheading">Para: <<%= owner_tag %> with="&@<%= owner %>"/></h3>
       </header>
       
       <section param="content-body">
         <form owner="<%= owner %>" method="post" param>
           <field-list: skip="<%= owner %>"/>
-          <submit: label="Create <%= model_name :title %>"/>
+          <submit: label="Criar <%= model_name :title %>"/>
         </form>
       </section>
     </content:>

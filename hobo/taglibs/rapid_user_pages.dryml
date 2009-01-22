@@ -11,13 +11,13 @@
 <!-- Simple log-in page  -->
 <def tag="login-page">
   <% remember_me = true if remember_me.nil? %>
-  <simple-page title="Log in" merge>
+  <simple-page title="Entrar" merge>
    
     <body: class="login-page" param/>
     
     <content: param>
       <header param="content-header">
-        <h2 param="heading">Log In</h2>
+        <h2 param="heading">Entrar</h2>
       </header>
       
       <section param="content-body">      
@@ -29,23 +29,23 @@
             </labelled-item>
 
             <labelled-item>
-              <item-label param="password-label">Password</item-label>
+              <item-label param="password-label">Senha</item-label>
               <item-value>
                 <input type="password" name="password" id="password" class="string" param="password-input"/>
               </item-value>
             </labelled-item>
 
             <labelled-item param="remember-me">
-              <item-label class="field-label" param="remember-me-label">Remember me:</item-label>
+              <item-label class="field-label" param="remember-me-label">Lembrar-me:</item-label>
               <item-value><input type="checkbox" name="remember_me" id="remember-me" param="remember-me-input"/></item-value>
             </labelled-item>
           </labelled-item-list>
           <div param="actions">
             <submit label='Log in' param/><if test="&signup_url" class='nav-item'>
-            or <a href="&signup_url">Sign up</a></if>
+            or <a href="&signup_url">Inscrever-se</a></if>
           </div>
         </form>
-        <a href="&forgot_password_url" param="forgot-password" if="&forgot_password_url">Forgot your password?</a>
+        <a href="&forgot_password_url" param="forgot-password" if="&forgot_password_url">Esqueceu sua senha?</a>
       </section>
     </content:>
   </simple-page>
@@ -55,30 +55,30 @@
 <!-- The page that initiates the forgotten password process. Contians a single text-input where the user can provide
  their email address -->
 <def tag="forgot-password-page">
-  <simple-page title="Forgotten Password" merge>
+  <simple-page title="Esqueci minha senha" merge>
    
     <body: class="forgot-password-page" param/>
     
     <content: param>
       <header param="content-header">
-        <h2 param="heading">Forgotten Password</h2>
-        <p>Enter the email address you signed up with. If we have it in
-        our records we'll send you an email allowing you to choose a new
-        password.</p>
+        <h2 param="heading">Esqueci minha senha</h2>
+        <p>Digite o e-mail com o qual você foi cadastrado. Se ele
+	for encontrado em nossa base, enviaremos um e-mail que
+	lhe permitira criar uma nova senha.</p>
       </header>
 
       <section param="content-body">
         <form action="" class="forgot-password" param>
           <labelled-item-list param>
             <labelled-item>
-              <item-label param="email-address-label">Email Address</item-label>
+              <item-label param="email-address-label">Endereço de e-mail</item-label>
               <item-value>
                 <input type="text" name="email_address" id="email-address" class="email-address" param="email-address-input" />
               </item-value>
             </labelled-item>
           </labelled-item-list>
           <div param="actions">
-            <submit label="Send" param/>
+            <submit label="Enviar" param/>
           </div>
         </form>
       </section>
@@ -96,16 +96,16 @@ if a given email is associated with an account or not. -->
     
     <content: param>
       <header param="content-header">
-        <h2 param>Forgotten Password - Sent</h2>
+        <h2 param>Senha esquecida - Enviada</h2>
       </header>
 
       <section param="content-body">
-        <p param="message">If the e-mail address you entered, <%= h params[:email_address] %>,
-          is in our records, you will
-        receive an e-mail from us with instructions for resetting your
-        password. If you don't receive this e-mail, please check your
-        junk mail folder.</p>
-        <p><a href="#{base_url}/">Back to <app-name/></a></p>
+        <p param="message">Se o e-mai que você digitou, <%= h params[:email_address] %>,
+          está em nossos registros, você vai
+        receber um e-mail com instruções para resetar sua senha.
+	Caso você não receber verifique sua lixeira e/ou caixa de
+	spams.</p>
+        <p><a href="#{base_url}/">Voltar para <app-name/></a></p>
       </section>
     </content:>
         
@@ -122,11 +122,11 @@ if a given email is associated with an account or not. -->
 
     <content: param>
       <header param="content-header">
-        <h2 param>Account is not available</h2>
+        <h2 param>Conta indisponível</h2>
       </header>
 
       <section param="content-body">
-        <p>Your account is not available at this time.</p>
+        <p>Sua conta não esta disponível neste momento.</p>
       </section>
     </content:>
   </simple-page>
@@ -137,7 +137,7 @@ if a given email is associated with an account or not. -->
 <!-- Basic account page that provides the ability for the user to change their email address and password. -->
 <def tag="account-page">
 
-  <page title="#{name} - Account" merge>
+  <page title="#{name} - Conta" merge>
 
     <body: class="user-account-page #{type_name}" param/>
 
@@ -150,12 +150,12 @@ if a given email is associated with an account or not. -->
         <error-messages param/>
         <form class="change-password" param>
           <field-list fields="email_address, current_password, password, password_confirmation" param>
-            <password-label:>New Password</password-label:>
-            <password-confirmation-label:>Confirm New Password</password-confirmation-label:>
+            <password-label:>Nova senha</password-label:>
+            <password-confirmation-label:>Confirme a nova senha</password-confirmation-label:>
           </field-list>
 
           <div class="actions" param="actions">
-            <submit label="Save" param/>
+            <submit label="Gravar" param/>
           </div>
         </form>
       </section>

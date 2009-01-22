@@ -10,7 +10,7 @@ cancel_to_index_page = !cancel_to_index_page && linkable?(:index)
     <error-messages param/>
     <field-list fields="<%= form_fields * ', ' %>" param/>
     <div param="actions">
-      <submit label="Save" param/><or-cancel param="cancel"/>
+      <submit label="Gravar" param/><ou-cancelar param="cancel"/>
     </div>
   </form>
 </def>
@@ -22,7 +22,7 @@ cancel_to_index_page = !cancel_to_index_page && linkable?(:index)
     <error-messages param/>
     <field-list fields="<%= creator.parameters * ', ' %>" param/>
     <div param="actions">
-      <submit label="<%= creator.name.to_s.titleize %>" param/><or-cancel param="cancel"/>
+      <submit label="<%= creator.name.to_s.titleize %>" param/><ou-cancelar param="cancel"/>
     </div>
   </form>
 </def>
@@ -36,7 +36,7 @@ cancel_to_index_page = !cancel_to_index_page && linkable?(:index)
     <input type="hidden" name="key" value="&this.lifecycle.provided_key" if="&this.lifecycle.provided_key"/>
     <field-list fields="<%= transition.parameters * ', ' %>" param/>
     <div param="actions">
-      <submit label="<%= transition.name.to_s.titleize %>" param/><or-cancel param="cancel"/>
+      <submit label="<%= transition.name.to_s.titleize %>" param/><ou-cancelar param="cancel"/>
     </div>
   </form>
 </def>

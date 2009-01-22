@@ -126,7 +126,7 @@ This area of Hobo has had less attention that the non-ajax forms of late, so it'
   
   -->
 <def tag="string-select-editor" attrs="update, values, labels, titleize"><%
-  raise HoboError.new("Not allowed to edit") unless can_edit?
+  raise HoboError.new("Não é permitido editar") unless can_edit?
 
   values = comma_split(values)
   labels ||= {}
@@ -214,7 +214,7 @@ This area of Hobo has had less attention that the non-ajax forms of late, so it'
  <% options ||= (min.to_i..max.to_i).to_a %>
  <select class="number-editor-bhv #{model_id_class} #{'update:' + comma_split(update).join(':') unless update.blank?}"
           merge-attrs="&message ? attributes.merge(:hobo_message => message) : attributes">
-   <if test="&this.nil?"><option value=""><%= nil_option || "Choose a value" %></option></if>
+   <if test="&this.nil?"><option value=""><%= nil_option || "Escolha um valor" %></option></if>
    <%= options_for_select(options.*.to_s, this) %>
  </select>
 </def>

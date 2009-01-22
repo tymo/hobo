@@ -74,7 +74,7 @@ The easiest way to see what this tag does is to look at the source.
  
   -->
 <def tag="permission-denied-page" attrs="message">
-  <% message ||= "That operation is not allowed" %>
+  <% message ||= "Esta operação não é permitida" %>
   <page merge>
     <body: class="permission-denied"/>
     <content: param>
@@ -94,7 +94,7 @@ The easiest way to see what this tag does is to look at the source.
  
   -->
 <def tag="not-found-page" attrs="message">
-  <% message ||= "The page you were looking for could not be found" %>
+  <% message ||= "A página que você estava procurando não pode ser encontrada" %>
   <page merge>
     <body: class="not-found"/>
     <content: param>
